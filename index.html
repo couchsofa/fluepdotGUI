@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<head>
+  <script src="jquery-3.5.1.slim.min.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
+  <script type="text/javascript">
+
+/* Sadly, at this point the fluepdot does not send CORS headers
+ * so we can't poll the state or config without disabling browser
+ * web-security. We hope that this changes in the future and this
+ * app can become more interactive.
+*/
+
+  let fluepdotURL = 'fluepdot.local'
+  let fonts = [
+    'DejaVuSerif32',
+    'DejaVuSerif16',
+    'DejaVuSans12',
+    'DejaVuSans12bw',
+    'DejaVuSans12bw_bwfont',
+    'fixed_10x20',
+    'fixed_7x14',
+    'fixed_5x8',
+  ]
+
+$(function () {
+  let fontSelectOptions = document.getElementById('font').options
+  fonts.forEach(font =>
+    fontSelectOptions.add(
+      new Option(font)
+    )
+  )
+})
+
+function flSend(endpoint, options = {method: 'GET'}, params = {}) {
+  let url = new URL('http://' + fluepdotURL + '/' + endpoint)
+  url.search = new URLSearchParams(params).toString()
+
+  fetch(url, options)
+}
+
+function sendText() {
+  let text = document.getElementById('text').value
+  let font = document.getElementById('font').value
+  let x = document.getElementById('x').value
+  let y = document.getElementById('y').value
+  let params = { 
+    x: x,
+    y: y,
+    font: font
+  }
+  flSend('framebuffer/text', {method: 'POST', body: text}, params)
+}
+
+
+  </script>
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <style type="text/css">
+    body {
+      padding: 15px;
+    }
+    .nav {
+      margin-bottom: 15px; 
+    }
+  </style>
+  <title>fluepdotGUI</title>
+</head>
+<body>
+  <div class="container">
+    <h2>fluepdotGUI</h2>
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#tab_text">Text Mode</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#tab_fb">Framebuffer Mode</a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="tab_text" class="tab-pane fade show active">
+        <div class="form-group">
+          <label for="text">text</label>
+          <input type="text" class="form-control" id="text">
+        </div>
+        <div class="form-group row">
+          <div class="col">
+            <label for="font">font</label>
+            <select class="form-control" id="font">
+            </select>
+          </div>
+
+          <div class="col">
+            <label for="x">x</label>
+            <input type="number" min="0" value="0" class="form-control" id="x">
+          </div>
+
+          <div class="col">
+            <label for="y">y</label>
+            <input type="number" min="0" value="0" class="form-control" id="y">
+          </div>
+        </div>
+        <button onclick="sendText()" class="btn btn-primary btn-block">send</button>
+      </div>
+      <div id="tab_fb" class="tab-pane fade">
+        <h3>Framebuffer Mode</h3>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
