@@ -61,6 +61,40 @@ function sendText() {
     .nav {
       margin-bottom: 15px; 
     }
+
+    .frame {
+      display: flex;
+      flex-wrap: wrap;
+      width: 458px;
+      padding: 1px;
+      background-color: rgb(20, 20, 20);
+    }
+    .pixel {
+      position: relative;
+      width: 15px;
+      height: 15px;
+      border-top: 15px solid rgb(144, 245, 66);
+      border-right: 15px solid black;
+      margin: 2px;
+    }
+    .flüp {
+      position: absolute;
+      top: -15px;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-top: 15px solid black;
+      border-right: 15px solid transparent;
+      -webkit-transform-origin: center center;
+      -webkit-transition: transform 1s ease, border-top 0.3s step-end, border-right 0.3s step-end;
+    }
+    .flüp:hover {
+      -webkit-transform: rotateX(90deg) rotateZ(90deg) rotateY(-90deg);
+      border-top: 15px solid rgb(144, 245, 66);
+      border-right: 15px solid transparent;
+    }
+
+
   </style>
   <title>fluepdotGUI</title>
 </head>
@@ -102,7 +136,152 @@ function sendText() {
         <button onclick="sendText()" class="btn btn-primary btn-block">send</button>
       </div>
       <div id="tab_fb" class="tab-pane fade">
-        <h3>Framebuffer Mode</h3>
+        <div class="frame">
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+          <div class="pixel">
+            <div class="flüp"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
